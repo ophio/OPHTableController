@@ -20,14 +20,20 @@
 }
 
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView delegate:(id<OPHTableControllerDelegate>)delegate withPullToRefresh:(BOOL)isPullToRefresh withLoadMore:(BOOL)isLoadMore {
-  if (isPullToRefresh) {
-    self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:scrollView delegate:delegate];
-  }
-
-  if (isLoadMore) {
-    self.loadMore = [[OPHLoadMore alloc] initWithScrollView:scrollView delegate:delegate];
+  self = [super init];
+  if (self){
+    if (isPullToRefresh) {
+      self.pullToRefreshView = [[SSPullToRefreshView alloc] initWithScrollView:scrollView delegate:delegate];
+    }
+    if (isLoadMore) {
+      self.loadMore = [[OPHLoadMore alloc] initWithScrollView:scrollView delegate:delegate];
+    }
   }
   return self;
+}
+
+- (id)init{
+  return [self initWithScrollView:nil delegate:nil withPullToRefresh:NO withLoadMore:NO];
 }
 
 - (void)pullToRefreshFinishLoading {
@@ -36,6 +42,11 @@
 
 - (void)configCustomLoadMoreView:(UIView *)customView {
   [self.loadMore configCustomLoadMoreView:customView];
+}
+
+- (void)configCustomPullToRefreshView:(UIView<OPHPullToRefreshCustomView>*)customView{
+  self.pullToRefreshView.contentView = customView;
+  self.pullToRefreshView.expandedHeight =customView.frame.size.height;
 }
 
 @end

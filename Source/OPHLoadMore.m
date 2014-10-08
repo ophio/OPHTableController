@@ -27,19 +27,23 @@
 
 - (id)initWithScrollView:(UIScrollView *)scrollView delegate:(id<OPHLoadMoreDelegate>)delegate {
   if (self != nil) {
-
+    
     self.scrollView = scrollView;
     self.delegate = delegate;
     self.state = OPHLoadMoreViewStateNormal;
     self.loadMoreCellHeight = kLoadMoreDefaultHeight;
-
+    
     [self addDefaultLoadMore];
     [self loadMoreViewHidden:YES];
-
+    
     void *context = (__bridge void *)self;
     [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
   }
   return self;
+}
+
+- (id)init{
+  return [self initWithScrollView:nil delegate:nil];
 }
 
 - (void)addDefaultLoadMore {
@@ -47,7 +51,6 @@
   self.activityView.clipsToBounds = NO;
   self.activityView.frame = CGRectMake(0, 0, kScreenWidth, self.loadMoreCellHeight);
   [self.scrollView addSubview:self.activityView];
-  self.scrollView.clipsToBounds = NO;
 }
 
 - (void)loadMoreViewHidden:(BOOL)hidden {
@@ -76,7 +79,7 @@
                                          self.scrollView.contentSize.height + self.scrollView.contentInset.bottom,
                                          kScreenWidth,
                                          self.loadMoreCellHeight);
-
+    
   } else {
     self.customLoadMore.frame = CGRectMake((kScreenWidth - self.customLoadMore.frame.size.width)/2.0f,
                                            self.scrollView.contentSize.height + self.scrollView.contentInset.bottom,
@@ -101,16 +104,16 @@
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     return;
   }
-
+  
   // Get the offset out of the change notification
   CGFloat y = [[change objectForKey:NSKeyValueChangeNewKey] CGPointValue].y + self.scrollView.contentInset.top + self.scrollView.frame.size.height;
-
+  
   // adjusts scroll view state i.e. OPHScrollViewState
   [self adjustScrollViewState];
-
+  
   // loader will trigger only if user scrolls enough
   CGFloat minLoadMoreHeight = self.scrollView.contentSize.height + kReloadDistance + self.scrollView.contentInset.bottom;
-
+  
   if (self.scrollView.isDragging && self.scrollViewState == OPHScrollViewLoadMoreState) {
     if (self.state == OPHLoadMoreViewStateNormal) {
       if (y > minLoadMoreHeight) {
@@ -121,11 +124,11 @@
         self.state = OPHLoadMoreViewStateNormal;
       }
     }
-
+    
   } else if (self.scrollView.isDecelerating  && self.scrollViewState == OPHScrollViewLoadMoreState) {
     if (self.state == OPHLoadMoreViewStateReady) {
       [self handleLoadMoreReadyState];
-
+      
     } else if (self.state == OPHLoadMoreViewStateNormal){
     }
   }
@@ -147,13 +150,13 @@
   [self setloadMoreCellFrame];
   [self loadMoreViewHidden:NO];
   self.previousContentHeight = self.scrollView.contentSize.height;
-
+  
   UIEdgeInsets loadMoreEdgeInsets = self.scrollView.contentInset;
   loadMoreEdgeInsets.bottom += self.loadMoreCellHeight;
-
+  
   [UIView animateWithDuration:0.5 animations:^{
     self.scrollView.contentInset = loadMoreEdgeInsets;
-
+    
   } completion:^(BOOL finished) {
     if ([self.delegate respondsToSelector:@selector(loadMoreDidStartLoading:withCompletionBlock:)]) {
       [self.delegate loadMoreDidStartLoading:self withCompletionBlock:^(BOOL success) {
@@ -169,7 +172,7 @@
   CGRect scrollViewBounds = scrollView.bounds;
   CGSize scrollViewContentSize = scrollView.contentSize;
   UIEdgeInsets scrollViewInsets = scrollView.contentInset;
-
+  
   CGFloat bottomScrolledYPosition = currentOffset.y + scrollViewBounds.size.height + scrollViewInsets.bottom;
   CGFloat scrollViewContentHeight = scrollViewContentSize.height;
   CGFloat reloadDistance = 0;
@@ -185,18 +188,18 @@
     finalOffset = loadMoreoffset;
     CGFloat currentContentHeight = self.scrollView.contentSize.height;
     CGFloat extraHeight = self.loadMoreCellHeight - (currentContentHeight - self.previousContentHeight);
-
+    
     if (extraHeight > 0 && self.scrollView.contentSize.height - self.scrollView.frame.size.height > 0) {
       CGPoint currentoffset = self.scrollView.contentOffset;
       currentoffset.y -= extraHeight;
       finalOffset = currentoffset;
     }
   }
-
+  
   [UIView animateWithDuration:0.5 animations:^{
     self.scrollView.contentInset = loadMoreEdgeInsets;
     self.scrollView.contentOffset = finalOffset;
-
+    
   } completion:^(BOOL finished) {
     [self loadMoreViewHidden:YES];
     self.state = OPHLoadMoreViewStateNormal;
