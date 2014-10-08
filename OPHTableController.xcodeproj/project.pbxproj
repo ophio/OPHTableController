@@ -13,12 +13,12 @@
 		23CE18FF1978FF5800DA8967 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23CE18FD1978FF5800DA8967 /* Main.storyboard */; };
 		23CE19011978FF5800DA8967 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23CE19001978FF5800DA8967 /* Images.xcassets */; };
 		23CE190D1978FF5800DA8967 /* OPHTableControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23CE190C1978FF5800DA8967 /* OPHTableControllerTests.m */; };
+		3D370B5919E5A742000C533C /* OPHTableController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3D370B5819E5A742000C533C /* OPHTableController.podspec */; };
 		3D72958019E57532000D7B3A /* OPHLoadMore.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72957619E57532000D7B3A /* OPHLoadMore.m */; };
 		3D72958119E57532000D7B3A /* OPHTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72957819E57532000D7B3A /* OPHTableController.m */; };
 		3D72958219E57532000D7B3A /* SSPullToRefreshDefaultContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72957B19E57532000D7B3A /* SSPullToRefreshDefaultContentView.m */; };
 		3D72958319E57532000D7B3A /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72957D19E57532000D7B3A /* SSPullToRefreshSimpleContentView.m */; };
 		3D72958419E57532000D7B3A /* SSPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72957F19E57532000D7B3A /* SSPullToRefreshView.m */; };
-		3D72958619E57EA6000D7B3A /* OPHTableController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3D72958519E57EA6000D7B3A /* OPHTableController.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +44,7 @@
 		23CE19061978FF5800DA8967 /* OPHTableControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OPHTableControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23CE190B1978FF5800DA8967 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23CE190C1978FF5800DA8967 /* OPHTableControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OPHTableControllerTests.m; sourceTree = "<group>"; };
+		3D370B5819E5A742000C533C /* OPHTableController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OPHTableController.podspec; sourceTree = "<group>"; };
 		3D72957519E57532000D7B3A /* OPHLoadMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPHLoadMore.h; sourceTree = "<group>"; };
 		3D72957619E57532000D7B3A /* OPHLoadMore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPHLoadMore.m; sourceTree = "<group>"; };
 		3D72957719E57532000D7B3A /* OPHTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPHTableController.h; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		3D72957D19E57532000D7B3A /* SSPullToRefreshSimpleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshSimpleContentView.m; sourceTree = "<group>"; };
 		3D72957E19E57532000D7B3A /* SSPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshView.h; sourceTree = "<group>"; };
 		3D72957F19E57532000D7B3A /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
-		3D72958519E57EA6000D7B3A /* OPHTableController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OPHTableController.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +79,7 @@
 		23CE18E71978FF5800DA8967 = {
 			isa = PBXGroup;
 			children = (
+				3D370B5819E5A742000C533C /* OPHTableController.podspec */,
 				3D72957419E57532000D7B3A /* Source */,
 				23CE18F21978FF5800DA8967 /* OPHTableController */,
 				23CE19091978FF5800DA8967 /* OPHTableControllerTests */,
@@ -140,7 +141,6 @@
 			children = (
 				3D72957519E57532000D7B3A /* OPHLoadMore.h */,
 				3D72957619E57532000D7B3A /* OPHLoadMore.m */,
-				3D72958519E57EA6000D7B3A /* OPHTableController.podspec */,
 				3D72957719E57532000D7B3A /* OPHTableController.h */,
 				3D72957819E57532000D7B3A /* OPHTableController.m */,
 				3D72957919E57532000D7B3A /* SSPullToRefresh.h */,
@@ -235,7 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D72958619E57EA6000D7B3A /* OPHTableController.podspec in Resources */,
+				3D370B5919E5A742000C533C /* OPHTableController.podspec in Resources */,
 				23CE18FF1978FF5800DA8967 /* Main.storyboard in Resources */,
 				23CE19011978FF5800DA8967 /* Images.xcassets in Resources */,
 			);
