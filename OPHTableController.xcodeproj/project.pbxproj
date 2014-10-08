@@ -18,6 +18,7 @@
 		3D72958219E57532000D7B3A /* SSPullToRefreshDefaultContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72957B19E57532000D7B3A /* SSPullToRefreshDefaultContentView.m */; };
 		3D72958319E57532000D7B3A /* SSPullToRefreshSimpleContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72957D19E57532000D7B3A /* SSPullToRefreshSimpleContentView.m */; };
 		3D72958419E57532000D7B3A /* SSPullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D72957F19E57532000D7B3A /* SSPullToRefreshView.m */; };
+		3D72958619E57EA6000D7B3A /* OPHTableController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3D72958519E57EA6000D7B3A /* OPHTableController.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		3D72957D19E57532000D7B3A /* SSPullToRefreshSimpleContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshSimpleContentView.m; sourceTree = "<group>"; };
 		3D72957E19E57532000D7B3A /* SSPullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPullToRefreshView.h; sourceTree = "<group>"; };
 		3D72957F19E57532000D7B3A /* SSPullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPullToRefreshView.m; sourceTree = "<group>"; };
+		3D72958519E57EA6000D7B3A /* OPHTableController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OPHTableController.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				3D72957519E57532000D7B3A /* OPHLoadMore.h */,
 				3D72957619E57532000D7B3A /* OPHLoadMore.m */,
+				3D72958519E57EA6000D7B3A /* OPHTableController.podspec */,
 				3D72957719E57532000D7B3A /* OPHTableController.h */,
 				3D72957819E57532000D7B3A /* OPHTableController.m */,
 				3D72957919E57532000D7B3A /* SSPullToRefresh.h */,
@@ -232,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D72958619E57EA6000D7B3A /* OPHTableController.podspec in Resources */,
 				23CE18FF1978FF5800DA8967 /* Main.storyboard in Resources */,
 				23CE19011978FF5800DA8967 /* Images.xcassets in Resources */,
 			);
