@@ -16,9 +16,8 @@ It uses [SSPullToRefresh](https://github.com/soffes/sspulltorefresh) for all the
 
 ###Podfile
 ```
-pod "OPHTableController", "~> 1.0.0"
+pod 'OPHTableController', :git => 'https://github.com/ophio/OPHTableController.git', :branch => 'master'
 ```
-
 
 ##Architecture
  - OPHLoadMore
