@@ -46,10 +46,11 @@ It manages both the above classes and your viewcontroller or another manager sho
 ```
 <br/>
 
-- Protocol to follow
+- Protocols to follow
 
 ```
-OPHLoadMoreDelegate
+OPHTableControllerDelegate,
+OPHPullToRefreshCustomView
 ```
 <br/>
 
@@ -68,10 +69,12 @@ OPHLoadMoreDelegate
 /* this method should be called when using a custom view; you can handle the animation of the custom loader in the delegate methods */
 - (void)configCustomLoadMoreView:(UIView*)customView;
 
+/* this method should be called when using a custom pull to refresh view; you can handle the animation of the custom loader and respond to the state changes in the delegate methods */
+- (void)configCustomPullToRefreshView:(UIView<OPHPullToRefreshCustomView>*)customView;
 ```
 <br/>
 
-- Delegate Methods of **OPHLoadMore**
+- Delegate Methods of **OPHTableControllerDelegate**
 
 ```
 /* it should return YES if you want to use load more functionality */
@@ -84,6 +87,9 @@ OPHLoadMoreDelegate
 /* you can perform further actions after the loader stops */
 - (void)loadMoreDidFinishLoading:(OPHLoadMore *)loadMore;
 ```
+
+Checkout [**SSPullToRefresh**](https://github.com/soffes/sspulltorefresh) for its documentation. 
+
 <br/>
 
 - Custom view for Load-More
@@ -104,5 +110,3 @@ Open an issue or send pull request [here](https://github.com/ophio/OPHTableContr
 ## Licence
 
 OPHTableController is available under the MIT license. See the LICENSE file for more info.
-
-##Thanks
