@@ -104,6 +104,6 @@ Open an issue or send pull request [here](https://github.com/ophio/OPHTableContr
 
 ## Licence
 
-MIT
+OPHTableController is available under the MIT license. See the LICENSE file for more info.
 
 ##Thanks
