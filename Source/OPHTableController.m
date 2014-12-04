@@ -9,8 +9,6 @@
 #import "OPHTableController.h"
 
 @interface OPHTableController ()
-@property (strong, nonatomic) SSPullToRefreshView* pullToRefreshView;
-@property (strong, nonatomic) OPHLoadMore* loadMore;
 @end
 
 @implementation OPHTableController

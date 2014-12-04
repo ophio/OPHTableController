@@ -36,6 +36,10 @@ typedef void (^OPHCompletionBlock)(BOOL);
 
 /* this method should be called when using a custom view; you can handle the animation of the custom loader in the delegate methods */
 - (void)configCustomLoadMoreView:(UIView*)customView;
+
+- (void)finishLoading;
+
+- (void)startLoading;
 @end
 
 @protocol OPHLoadMoreDelegate <NSObject>

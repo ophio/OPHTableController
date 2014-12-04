@@ -14,6 +14,10 @@
 @protocol OPHPullToRefreshCustomView;
 
 @interface OPHTableController : NSObject
+
+@property (strong, nonatomic) SSPullToRefreshView* pullToRefreshView;
+@property (strong, nonatomic) OPHLoadMore* loadMore;
+
 /* this method will by default add pull to refresh and loader into the table. */
 - (instancetype)initWithScrollView:(UIScrollView*)scrollView delegate:(id<OPHTableControllerDelegate>)delegate;
 

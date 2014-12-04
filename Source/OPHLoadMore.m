@@ -179,6 +179,10 @@
   return ((bottomScrolledYPosition - scrollViewContentHeight + reloadDistance) > 0);
 }
 
+- (void)startLoading {
+  [self handleLoadMoreLoadingState];
+}
+
 - (void)finishLoading {
   UIEdgeInsets loadMoreEdgeInsets = self.scrollView.contentInset;
   loadMoreEdgeInsets.bottom -= self.loadMoreCellHeight;
