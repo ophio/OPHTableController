@@ -201,9 +201,10 @@
   }
   
   [UIView animateWithDuration:0.5 animations:^{
-    self.scrollView.contentInset = loadMoreEdgeInsets;
-    self.scrollView.contentOffset = finalOffset;
-    
+    if ([self calculateIfLoadMore:self.scrollView]) {
+      self.scrollView.contentInset = loadMoreEdgeInsets;
+      self.scrollView.contentOffset = finalOffset;
+    }
   } completion:^(BOOL finished) {
     [self loadMoreViewHidden:YES];
     self.state = OPHLoadMoreViewStateNormal;
