@@ -207,6 +207,7 @@
     }
   } completion:^(BOOL finished) {
     [self loadMoreViewHidden:YES];
+    [self setloadMoreCellFrame];
     self.state = OPHLoadMoreViewStateNormal;
     if ([self.delegate respondsToSelector:@selector(loadMoreDidFinishLoading:)]) {
       [self.delegate loadMoreDidFinishLoading:self];
