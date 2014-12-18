@@ -193,7 +193,7 @@
   UIEdgeInsets loadMoreEdgeInsets = self.scrollView.contentInset;
   loadMoreEdgeInsets.bottom -= self.loadMoreCellHeight;
   CGPoint loadMoreoffset = self.scrollView.contentOffset;
-  CGPoint finalOffset;
+  CGPoint finalOffset = CGPointZero;
   if (self.scrollView.contentSize.height >= self.previousContentHeight) {
     finalOffset = loadMoreoffset;
     CGFloat currentContentHeight = self.scrollView.contentSize.height;
