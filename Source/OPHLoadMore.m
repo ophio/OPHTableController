@@ -32,7 +32,7 @@
     self.delegate = delegate;
     self.state = OPHLoadMoreViewStateNormal;
     self.loadMoreCellHeight = kLoadMoreDefaultHeight;
-    
+    self.showAboveBottomInset = NO;
     [self addDefaultLoadMore];
     [self loadMoreViewHidden:YES];
     
@@ -74,15 +74,16 @@
 }
 
 - (void)setloadMoreCellFrame {
+  CGFloat insetAdjustment = self.showAboveBottomInset ? 0.0 : self.scrollView.contentInset.bottom;
   if (self.customLoadMore == nil) {
     self.activityView.frame = CGRectMake(0,
-                                         self.scrollView.contentSize.height + self.scrollView.contentInset.bottom,
+                                         self.scrollView.contentSize.height + insetAdjustment,
                                          kScreenWidth,
                                          self.loadMoreCellHeight);
     
   } else {
     self.customLoadMore.frame = CGRectMake((kScreenWidth - self.customLoadMore.frame.size.width)/2.0f,
-                                           self.scrollView.contentSize.height + self.scrollView.contentInset.bottom,
+                                           self.scrollView.contentSize.height + insetAdjustment,
                                            self.customLoadMore.frame.size.width,
                                            self.customLoadMore.frame.size.height);
   }

@@ -31,6 +31,7 @@ typedef void (^OPHCompletionBlock)(BOOL);
 @property (nonatomic, assign, readonly) OPHScrollViewState scrollViewState;
 @property (nonatomic, assign, readonly) OPHLoadMoreViewState state;
 @property (nonatomic, strong) OPHCompletionBlock block;
+@property (nonatomic, assign) BOOL showAboveBottomInset;
 
 - (id)initWithScrollView:(UIScrollView *)scrollView delegate:(id<OPHLoadMoreDelegate>)delegate;
 
