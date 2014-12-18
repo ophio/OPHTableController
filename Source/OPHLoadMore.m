@@ -158,12 +158,17 @@
     self.scrollView.contentInset = loadMoreEdgeInsets;
     
   } completion:^(BOOL finished) {
-    if ([self.delegate respondsToSelector:@selector(loadMoreDidStartLoading:withCompletionBlock:)]) {
-      [self.delegate loadMoreDidStartLoading:self withCompletionBlock:^(BOOL success) {
-        [self finishLoading];
-      }];
-    }
-    return;
+    
+        if ([self.delegate respondsToSelector:@selector(loadMoreShouldStartLoading:)]) {
+            BOOL shouldLoad = [self.delegate loadMoreShouldStartLoading:self];
+            if (shouldLoad) {
+                if ([self.delegate respondsToSelector:@selector(loadMoreDidStartLoading:withCompletionBlock:)]) {
+                    [self.delegate loadMoreDidStartLoading:self withCompletionBlock:^(BOOL success) {
+                        [self finishLoading];
+                      }];
+                  }
+              }
+        }
   }];
 }
 
