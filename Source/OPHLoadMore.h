@@ -44,13 +44,15 @@ typedef void (^OPHCompletionBlock)(BOOL);
 @end
 
 @protocol OPHLoadMoreDelegate <NSObject>
+
+@optional
+
 /* it should return YES if you want to show loader */
 - (BOOL)loadMoreShouldStartLoading:(OPHLoadMore *)loadMore;
 
 /* you can perform API calls i.e. update data source; you should call the completion block explicitly after you update data source. */
 - (void)loadMoreDidStartLoading:(OPHLoadMore *)loadMore withCompletionBlock:(OPHCompletionBlock)block;
 
-@optional
 /* you can perform further actions after the loader stops */
 - (void)loadMoreDidFinishLoading:(OPHLoadMore *)loadMore;
 @end
