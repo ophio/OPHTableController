@@ -35,15 +35,21 @@
     self.showAboveBottomInset = NO;
     [self addDefaultLoadMore];
     [self loadMoreViewHidden:YES];
-    
-    void *context = (__bridge void *)self;
-    [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
   }
   return self;
 }
 
 - (id)init{
   return [self initWithScrollView:nil delegate:nil];
+}
+
+- (void)addScrollViewObserver {
+    void *context = (__bridge void *)self;
+    [self.scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:context];
+}
+
+- (void)removeScrollViewObserver {
+    [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
 }
 
 - (void)addDefaultLoadMore {
