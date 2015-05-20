@@ -35,6 +35,13 @@ typedef void (^OPHCompletionBlock)(BOOL);
 
 - (id)initWithScrollView:(UIScrollView *)scrollView delegate:(id<OPHLoadMoreDelegate>)delegate;
 
+/*
+ Add & remove observer when view appears & disappears.
+ Not removing observer was crashing the app.
+*/
+- (void)addScrollViewObserver;
+- (void)removeScrollViewObserver;
+
 /* this method should be called when using a custom view; you can handle the animation of the custom loader in the delegate methods */
 - (void)configCustomLoadMoreView:(UIView*)customView;
 
